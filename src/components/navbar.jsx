@@ -10,7 +10,7 @@ export default function NavBar() {
     const updateSize = () => {
       setSize(window.innerWidth);
     };
-
+    updateSize();
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
   }, []);
