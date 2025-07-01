@@ -24,4 +24,22 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .bg-primary {
+    background-color: #ffb30e;
+  }
+  .bg-second {
+    background-color: #f17228;
+  }
+  .bg-third {
+    background-color: #feefd0;
+  }
+  .bg-grad {
+    background: linear-gradient(to bottom, #feefd0, white);
+  }
+  .text-second {
+    color: #f17228;
+  }
+  .text-third {
+    color: #ffb30e;
+  }
 }
