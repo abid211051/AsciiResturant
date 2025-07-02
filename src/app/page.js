@@ -1,12 +1,12 @@
-import Categories from "@/components/heroSection/categories";
+import Category from "@/components/heroSection/category";
 import HeroBanner from "@/components/heroSection/herobanner";
-import Image from "next/image";
-
+import RandomMealComponent from "@/components/product/random";
 export default function Home() {
   return (
-    <div>
+    <div className="font-sans">
       <HeroBanner />
-      <Categories />
+      <Category />
+      <RandomMealComponent />
     </div>
   );
 }
