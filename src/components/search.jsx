@@ -20,7 +20,8 @@ export default function SearchComponent() {
     const query = formdata.get("query");
     if (!query && pathname === "/search") {
       router.replace("/");
-    } else {
+    }
+    if (query) {
       // Data Fecth & Update
       router.replace(`/search?query=${query}`);
     }

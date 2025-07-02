@@ -1,18 +1,21 @@
 import Image from "next/image";
 
-export default function Card({ item, id, children }) {
+export default function Card({ item, children, className }) {
   return (
     <div
-      key={id}
-      className="bg-white w-full rounded-2xl overflow-clip flex flex-col gap-2"
+      className={`w-full rounded-xl overflow-clip flex flex-col ${className}`}
     >
-      <Image
-        src={item?.strMealThumb || item?.strCategoryThumb || "/pngwing.png"}
-        alt={item?.strCategory || item?.strMeal || "Empty"}
-        width={100}
-        height={100}
-        className="w-full object-cover rounded-2xl hover:scale-110 transition-all"
-      />
+      <div className="bg-white aspect-square w-full relative overflow-hidden rounded-2xl">
+        <Image
+          src={item?.img || "/pngwing.png"}
+          alt={item?.title || ""}
+          fill
+          className="object-cover hover:scale-110 transition-all"
+          sizes="100%"
+          priority
+        />
+      </div>
+
       {children}
     </div>
   );

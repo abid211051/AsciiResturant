@@ -51,7 +51,7 @@ export default function Carousel({
       >
         {slides.map((group, i) => (
           <div
-            key={i}
+            key={`group-${i}`}
             style={{
               width: `${100 / slides.length}%`,
               display: "grid",
@@ -63,7 +63,7 @@ export default function Carousel({
             }}
           >
             {group.map((item, j) => (
-              <div>{renderItem(item, j)}</div>
+              <div key={`${item.id}--${j}`}>{renderItem(item)}</div>
             ))}
           </div>
         ))}
