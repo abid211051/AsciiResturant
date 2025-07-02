@@ -1,11 +1,11 @@
 "use client";
-import { Menu, Citrus, User } from "lucide-react";
+import { Citrus, User } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import SearchComponent from "./search";
 
 export default function NavBar() {
   const [size, setSize] = useState(0);
-  const [toogle, setToogle] = useState(false);
   useEffect(() => {
     const updateSize = () => {
       setSize(window.innerWidth);
@@ -17,22 +17,17 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`absolute top-0 w-full ${
-        toogle ? "h-[200px]" : "h-[55px]"
-      } bg-white flex justify-around items-start p-2 transition-all`}
+      className={`z-10 bg-white w-full xl:px-40 sm:px-20 px-4 py-2 transition-all flex flex-col justify-between gap-2`}
     >
-      <Link
-        href="/"
-        className="text-[#ffb30e] flex gap-2 items-center font-semibold"
-      >
-        <Citrus size={27} />
-        <p className="text-xl">AsciiRest</p>
-      </Link>
-      {size < 1024 ? (
-        <button onClick={() => setToogle(!toogle)}>
-          <Menu />
-        </button>
-      ) : (
+      <div className="flex flex-wrap justify-around items-center gap-4">
+        <Link
+          href="/"
+          className="text-[#ffb30e] flex gap-2 items-center font-semibold"
+        >
+          <Citrus size={27} />
+          <p className="text-xl">AsciiRest</p>
+        </Link>
+        {size > 1024 && <SearchComponent />}
         <Link
           href={"/"}
           className="p-2 flex items-center gap-2 text-[#ffb30e] shadow-sm shadow-[#ffe7b2] rounded-md"
@@ -40,7 +35,8 @@ export default function NavBar() {
           <User />
           <span>Login</span>
         </Link>
-      )}
+      </div>
+      {size < 1024 && <SearchComponent />}
     </nav>
   );
 }

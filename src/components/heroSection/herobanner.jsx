@@ -1,5 +1,3 @@
-"use client";
-import { Search } from "lucide-react";
 import Image from "next/image";
 
 export default function HeroBanner() {
@@ -18,18 +16,6 @@ export default function HeroBanner() {
             Within a few clicks, find meals that are accessible near you
           </p>
         </div>
-
-        <form
-          action=""
-          className="rounded-md bg-gray-50 border-2 px-2 flex gap-2 items-center"
-        >
-          <Search className="text-second" />
-          <input
-            type="search"
-            placeholder="Search a meal"
-            className="p-2 w-full bg-gray-50"
-          />
-        </form>
       </div>
     </div>
   );

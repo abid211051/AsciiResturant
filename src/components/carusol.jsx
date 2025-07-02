@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Card from "./card";
 
 export default function Carousel({
   items = [],
   rows = 2,
   columns = { base: 1, md: 2, lg: 3 },
+  renderItem,
 }) {
   const [columnCount, setColumnCount] = useState(columns.base || 1);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -63,7 +63,7 @@ export default function Carousel({
             }}
           >
             {group.map((item, j) => (
-              <Card item={item} id={j}></Card>
+              <div>{renderItem(item, j)}</div>
             ))}
           </div>
         ))}
@@ -71,13 +71,13 @@ export default function Carousel({
 
       <button
         onClick={prev}
-        className="absolute top-1/2 left-2 -translate-y-1/2 bg-white p-4 rounded-full shadow z-10 bg-second text-white"
+        className="absolute top-1/2 left-2 -translate-y-1/2 bg-white p-2 rounded-full shadow z-10 bg-second text-white"
       >
         <ChevronLeft strokeWidth={4} />
       </button>
       <button
         onClick={next}
-        className="absolute top-1/2 right-2 -translate-y-1/2 bg-white p-4 rounded-full shadow z-10 bg-second text-white"
+        className="absolute top-1/2 right-2 -translate-y-1/2 bg-white p-2 rounded-full shadow z-10 bg-second text-white"
       >
         <ChevronRight strokeWidth={4} />
       </button>
