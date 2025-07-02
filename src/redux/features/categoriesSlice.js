@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: false,
-  data: [],
+  categorydata: [],
   error: null,
 };
 
@@ -34,7 +34,7 @@ const categorySlice = createSlice({
             }))
           : [];
         state.isLoading = false;
-        state.data = filteredCategories;
+        state.categorydata = filteredCategories;
       })
       .addCase(fetchCategories.rejected, (state, action) => {
         state.isLoading = false;

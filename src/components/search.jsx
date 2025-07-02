@@ -1,20 +1,13 @@
 "use client";
+import { fecthSearchedMeal } from "@/redux/features/searchSlice";
 import { Search } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 
 export default function SearchComponent() {
-  const searchParam = useSearchParams();
+  const dispatch = useDispatch();
   const pathname = usePathname();
   const router = useRouter();
-  useEffect(() => {
-    if (pathname === "/search") {
-      const param = new URLSearchParams(searchParam);
-      if (param.get("query")) {
-        //
-      }
-    }
-  }, []);
 
   const handleSearch = async (formdata) => {
     const query = formdata.get("query");
@@ -22,7 +15,7 @@ export default function SearchComponent() {
       router.replace("/");
     }
     if (query) {
-      // Data Fecth & Update
+      dispatch(fecthSearchedMeal(query));
       router.replace(`/search?query=${query}`);
     }
   };

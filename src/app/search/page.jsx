@@ -11,7 +11,6 @@ export default function Search(param) {
       </h1>
       <div className="flex lg:flex-row flex-col gap-6">
         <div className="rounded-md h-fit lg:w-[250px]">
-          {/* Filter & Sort */}
           <Filters />
         </div>
         <div className="flex-1">

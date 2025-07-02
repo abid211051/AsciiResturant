@@ -4,7 +4,14 @@ export default function HeroBanner() {
   return (
     <div className="grid lg:grid-cols-2 gap-8 items-center bg-primary py-[60px] xl:px-40 sm:px-20 px-4 font-sans">
       <div className="relative w-full sm:max-w-[450px] lg:max-w-[700px] aspect-[2.5/2] mx-auto">
-        <Image src="/hero.png" alt="trend" fill className="object-contain " />
+        <Image
+          src="/hero.png"
+          alt="trend"
+          fill
+          className="object-contain"
+          sizes="100%"
+          priority
+        />
       </div>
 
       <div className="mx-auto">

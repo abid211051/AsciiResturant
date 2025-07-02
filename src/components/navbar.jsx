@@ -1,20 +1,8 @@
-"use client";
 import { Citrus, User } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import SearchComponent from "./search";
 
 export default function NavBar() {
-  const [size, setSize] = useState(0);
-  useEffect(() => {
-    const updateSize = () => {
-      setSize(window.innerWidth);
-    };
-    updateSize();
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
   return (
     <nav
       className={`z-10 bg-white w-full xl:px-40 sm:px-20 px-4 py-2 transition-all flex flex-col justify-between gap-2`}
@@ -27,7 +15,9 @@ export default function NavBar() {
           <Citrus size={27} />
           <p className="text-xl">AsciiRest</p>
         </Link>
-        {size > 1024 && <SearchComponent />}
+        <div className="flex-1 hidden lg:block">
+          <SearchComponent />
+        </div>
         <Link
           href={"/"}
           className="p-2 flex items-center gap-2 text-[#ffb30e] shadow-sm shadow-[#ffe7b2] rounded-md"
@@ -36,7 +26,9 @@ export default function NavBar() {
           <span>Login</span>
         </Link>
       </div>
-      {size < 1024 && <SearchComponent />}
+      <div className="flex-1 block lg:hidden">
+        <SearchComponent />
+      </div>
     </nav>
   );
 }
